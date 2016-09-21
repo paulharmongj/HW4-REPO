@@ -1,6 +1,6 @@
 ---
 title: "Homework 4"
-author: "Paul Harmon"
+author: "Paul Harmon and Dr. Jacob Dym"
 date: "September 21, 2016"
 output: pdf_document
 ---
