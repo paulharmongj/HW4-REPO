@@ -1,0 +1,65 @@
+---
+title: "Homework 4"
+author: "Paul Harmon"
+date: "September 21, 2016"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+---
+word_document:
+  fig_height: 7
+  fig_width: 10
+author: "Mark Greenwood"
+date: ''
+output: word_document
+title: "Time Series HW 44"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Due on Wednesday, Sept 28 at noon at my office.
+
+You can work alone or in groups of up to three. No bonus. If you are turning in separate assignments, you must use a different site (discussed below).
+
+We will now work with modeling monthly average C02 concentrations. The next bit of code works with the MLO (Mauna Loa) site's results. 
+
+For Mauna Loa, my data set looks like following and I subset it to only pertain to results after 1977 where there were no missing values. You can choose to keep years with missing values or cut those years from your analysis somewhat like I did. 
+```{r, warning=F}
+MLO_flask<-read.csv("https://dl.dropboxusercontent.com/u/77307195/MLO_flask.csv",header=T)
+table(MLO_flask$year) #Great way to see how many observations you have per year
+MLO_flaskR<-subset(MLO_flask,year>1976)
+MLOts<-ts(MLO_flaskR$value,start=c(1977,1),freq=12) #Only use this if any missing values coded as NAs or no NAs in vector, otherwise you might need to avoid ts()
+plot(MLOts)
+```
+
+In this homework, your group will choose a different site and download the data set. There are 96 different locations to choose from at `http://www.esrl.noaa.gov/gmd/dv/data/index.php?parameter_name=Carbon%2BDioxide&frequency=Monthly%2BAverages`. Click the trash can with a green arrow to access a text file that contains the data set. I found it easiest to just copy the rows with data and headers into Excel and use "Data -> Text to columns" to create a more useful 'csv file. But the conversion details are up to you. Make sure your site has records for at least 6 years. 
+
+Report all R code either inline or in an appendix.
+
+1) Provide a reason for your choice of location. Report any missing observations and the range of years where you are modeling.
+
+2) Make a nice looking time series plot of the CO$_2$ concentrations.
+
+3) Fit a linear trend plus seasonal means model to the data. Report and discuss the four panel residual diagnostics. Also make a plot of residuals vs time and discuss any potential missed pattern versus time.
+
+4) Provide tests for the linear and seasonal means components, conditional on each other. Report those results in two sentences including all details.
+
+5) For your model, plot the original time series and the model fitted values, both versus time on the same plot. You might consider two line types or colors for the two lines. The easiest way to obtain fitted values in R is using fitted(modelname). Discuss how it appears your model does or does not describe the responses using this plot.
+
+6) Document your R version 
+
+```{r}
+getRversion()
+sessionInfo()$R.version$nickname
+```
+
+
+
+
+
