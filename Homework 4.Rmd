@@ -29,13 +29,13 @@ Report all R code either inline or in an appendix.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-CO2 <- read.table("ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_cgo_surface-flask_1_ccgg_month.txt",header=T)
-colnames(CO2) = c("Site", "Year", "Month", "Value")
+CGO <- read.table("ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_cgo_surface-flask_1_ccgg_month.txt",header=T)
+colnames(CGO) = c("Site", "Year", "Month", "Value")
 
 BMonth <- NULL
 MI <- NULL
 for(i in 1:12){
-  MI <- as.numeric(CO2[,3])
+  MI <- as.numeric(CGO[,3])
   BMonth[i] <- sum(subset(MI,MI==i))
   
 }
@@ -46,6 +46,7 @@ for(i in 1:12){
 }
 #Gives the number of observations in the data for each month 1=January, 12=December
 MSum <- as.matrix(MSum)
+CGOts<-ts(CGO$Value,start=c(1989,1),freq=12)
 ```
 
 2) Make a nice looking time series plot of the CO$_2$ concentrations.
