@@ -9,16 +9,6 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ---
-
-
-```{r, warning=F}
-MLO_flask<-read.csv("https://dl.dropboxusercontent.com/u/77307195/MLO_flask.csv",header=T)
-table(MLO_flask$year) #Great way to see how many observations you have per year
-MLO_flaskR<-subset(MLO_flask,year>1976)
-MLOts<-ts(MLO_flaskR$value,start=c(1977,1),freq=12) #Only use this if any missing values coded as NAs or no NAs in vector, otherwise you might need to avoid ts()
-plot(MLOts)
-```
-
 _Report all R code either inline or in an appendix._
 
 1) _Provide a reason for your choice of location. Report any missing observations and the range of years where you are modeling. 
