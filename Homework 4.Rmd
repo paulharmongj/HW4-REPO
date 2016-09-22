@@ -1,6 +1,6 @@
 ---
 title: "Time Series: Homework 4"
-author: "Paul Harmon and Dr. Jacob Dym and Justin Gomez"
+author: "Paul Harmon and Jacob Dym and Justin Gomez"
 date: "September 21, 2016"
 output: pdf_document
 ---
