@@ -32,7 +32,7 @@ for(i in 1:12){
 }
 #Gives the number of observations in the data for each month 1=January, 12=December
 MSum <- as.matrix(MSum)
-CGOts<-ts(CGO$Value,start=c(1989,1),freq=12)
+CGOts<-ts(CGO$Value,start=c(1984,5),freq=12)
 ```
 
 2) _Make a nice looking time series plot of the CO$2$ concentrations._
@@ -42,9 +42,21 @@ plot(CGOts, col = "hotpink3", lwd = 2, main = "Carbon Dioxide Concentration over
 
 3) _Fit a linear trend plus seasonal means model to the data. Report and discuss the four panel residual diagnostics. Also make a plot of residuals vs time and discuss any potential missed pattern versus time._
 ```{r}
+<<<<<<< HEAD
 lm.seas = lm(C)
 ```
 
+=======
+#Not sure if this is exactly what he wants given the "seasonal means model"
+YearF <- as.vector(time(CGOts))
+MonthF <- as.factor(cycle(CGOts))
+CGO.lm<-lm(CGO$Value~YearF + MonthF)
+par(mfrow=c(2,2))
+plot(CGO.lm)
+par(mfrow=c(1,1))
+plot(CGO.lm$residuals~YearF,ylab="Residuals",xlab="Time")
+```
+>>>>>>> 71aa6c0713cb108118c9dc2c3459517f2cda41e7
 
 4) _Provide tests for the linear and seasonal means components, conditional on each other. Report those results in two sentences including all details._
 
