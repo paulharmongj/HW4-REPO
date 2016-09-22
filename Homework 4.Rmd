@@ -42,7 +42,22 @@ getRversion()
 sessionInfo()$R.version$nickname
 ```
 
-
+```{r,include=FALSE}
+BMonth <- NULL
+MI <- NULL
+for(i in 1:12){
+  MI <- as.numeric(CO2[,3])
+  BMonth[i] <- sum(subset(MI,MI==i))
+  
+}
+BMonth <- as.matrix(BMonth)
+MSum <- NULL
+for(i in 1:12){
+  MSum[i] <- BMonth[i]/i
+}
+#Gives the number of observations in the data for each month 1=January, 12=December
+MSum <- as.matrix(MSum)
+```
 
 
 
