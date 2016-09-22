@@ -19,15 +19,13 @@ MLOts<-ts(MLO_flaskR$value,start=c(1977,1),freq=12) #Only use this if any missin
 plot(MLOts)
 ```
 
-In this homework, your group will choose a different site and download the data set. There are 96 different locations to choose from at `http://www.esrl.noaa.gov/gmd/dv/data/index.php?parameter_name=Carbon%2BDioxide&frequency=Monthly%2BAverages`. Click the trash can with a green arrow to access a text file that contains the data set. I found it easiest to just copy the rows with data and headers into Excel and use "Data -> Text to columns" to create a more useful 'csv file. But the conversion details are up to you. Make sure your site has records for at least 6 years. 
+_Report all R code either inline or in an appendix._
 
-Report all R code either inline or in an appendix.
-
-1) Provide a reason for your choice of location. Report any missing observations and the range of years where you are modeling. 
+1) _Provide a reason for your choice of location. Report any missing observations and the range of years where you are modeling. 
     We chose a location in Australia (CGO) called Cape Grim, which is the northern-most point of Tasmania.  According to the station's website (managed by Massachussetts Institute of Technology), the station there is located in the path of large air masses that settle over Antarctica and the Southern Ocean that surrounds it; thus, measurements taken there tend to give some information about CO2 concentrations in less accessible places such as the South Pole. 
-    The dataset contains observations over a 21 year period from 1984 to 2015. Thankfully, there were no missing observations in the dataset.
+    The dataset contains observations over a 21 year period from 1984 to 2015. Thankfully, there were no missing observations in the dataset._
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 CGO <- read.table("ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_cgo_surface-flask_1_ccgg_month.txt",header=T)
 colnames(CGO) = c("Site", "Year", "Month", "Value")
@@ -49,15 +47,15 @@ MSum <- as.matrix(MSum)
 CGOts<-ts(CGO$Value,start=c(1989,1),freq=12)
 ```
 
-2) Make a nice looking time series plot of the CO$_2$ concentrations.
+2) _Make a nice looking time series plot of the CO$_2$ concentrations._
 
-3) Fit a linear trend plus seasonal means model to the data. Report and discuss the four panel residual diagnostics. Also make a plot of residuals vs time and discuss any potential missed pattern versus time.
+3) _Fit a linear trend plus seasonal means model to the data. Report and discuss the four panel residual diagnostics. Also make a plot of residuals vs time and discuss any potential missed pattern versus time._
 
-4) Provide tests for the linear and seasonal means components, conditional on each other. Report those results in two sentences including all details.
+4) _Provide tests for the linear and seasonal means components, conditional on each other. Report those results in two sentences including all details._
 
-5) For your model, plot the original time series and the model fitted values, both versus time on the same plot. You might consider two line types or colors for the two lines. The easiest way to obtain fitted values in R is using fitted(modelname). Discuss how it appears your model does or does not describe the responses using this plot.
+5) _For your model, plot the original time series and the model fitted values, both versus time on the same plot. You might consider two line types or colors for the two lines. The easiest way to obtain fitted values in R is using fitted(modelname). Discuss how it appears your model does or does not describe the responses using this plot._
 
-6) Document your R version 
+6) _Document your R version._
 
 ```{r}
 getRversion()
