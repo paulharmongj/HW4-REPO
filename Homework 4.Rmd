@@ -45,7 +45,10 @@ plot(CGOts, col = "hotpink3", lwd = 2)
 #Not sure if this is exactly what he wants given the "seasonal means model"
 YearF <- as.vector(time(CGOts))
 MonthF <- as.factor(cycle(CGOts))
-plot(lm(CGO$Value~YearF + MonthF))
+LmYM <- lm(CGO$Value~YearF + MonthF)
+plot(LmYM)
+
+plot(residuals(LmYM)~YearF)
 ```
 
 4) _Provide tests for the linear and seasonal means components, conditional on each other. Report those results in two sentences including all details._
