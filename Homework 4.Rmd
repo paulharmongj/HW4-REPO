@@ -37,7 +37,7 @@ CGOts<-ts(CGO$Value,start=c(1984,5),freq=12)
 
 2) _Make a nice looking time series plot of the CO$2$ concentrations._
 ```{r}
-plot(CGOts, col = "hotpink3", lwd = 2, main = "Carbon Dioxide Concentration over Time")
+plot(CGOts, col = "hotpink3", lwd = 2)
 ```
 
 3) _Fit a linear trend plus seasonal means model to the data. Report and discuss the four panel residual diagnostics. Also make a plot of residuals vs time and discuss any potential missed pattern versus time._
