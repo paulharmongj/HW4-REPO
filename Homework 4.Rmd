@@ -42,16 +42,13 @@ plot(CGOts, col = "hotpink3", lwd = 2, main = "Carbon Dioxide Concentration over
 
 3) _Fit a linear trend plus seasonal means model to the data. Report and discuss the four panel residual diagnostics. Also make a plot of residuals vs time and discuss any potential missed pattern versus time._
 ```{r}
-======
 #Not sure if this is exactly what he wants given the "seasonal means model"
 YearF <- as.vector(time(CGOts))
 MonthF <- as.factor(cycle(CGOts))
-<<<<<<< HEAD
 LmYM <- lm(CGO$Value~YearF + MonthF)
 plot(LmYM)
 
 plot(residuals(LmYM)~YearF)
-=======
 CGO.lm<-lm(CGO$Value~YearF + MonthF)
 par(mfrow=c(2,2))
 plot(CGO.lm)
@@ -60,6 +57,12 @@ plot(CGO.lm$residuals~YearF,ylab="Residuals",xlab="Time")
 ```
 
 4) _Provide tests for the linear and seasonal means components, conditional on each other. Report those results in two sentences including all details._
+```{r}
+LS.lm <- lm(CGO$Value~ YearF + MonthF + YearF*MonthF)
+plot(LS.lm)
+summary(CGO.lm)
+summary(LS.lm)
+```
 
 5) _For your model, plot the original time series and the model fitted values, both versus time on the same plot. You might consider two line types or colors for the two lines. The easiest way to obtain fitted values in R is using fitted(modelname). Discuss how it appears your model does or does not describe the responses using this plot._
 
