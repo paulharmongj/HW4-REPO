@@ -66,6 +66,12 @@ summary(LS.lm)
 
 5) _For your model, plot the original time series and the model fitted values, both versus time on the same plot. You might consider two line types or colors for the two lines. The easiest way to obtain fitted values in R is using fitted(modelname). Discuss how it appears your model does or does not describe the responses using this plot._
 
+```{r}
+plot(CGO$Value~YearF,type="l")
+fits<-fitted(CGO.lm)
+lines(fits~YearF,type="l",col="blue")
+```
+
 6) _Document your R version._
 
 ```{r}
