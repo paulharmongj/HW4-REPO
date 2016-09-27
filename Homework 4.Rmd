@@ -65,7 +65,7 @@ plot(CGO.lm$residuals~YearF,ylab="Residuals",xlab="Time", main = "Missed Pattern
 ```{r}
 LS.lm <- lm(CGO$Value~ YearF + MonthF + YearF*MonthF)
 anova(LS.lm)
-require(car)
+if (!require("car")) install.packages("car")
 Anova(LS.lm,type=2)
 Anova(LS.lm,type=3)
 ```
