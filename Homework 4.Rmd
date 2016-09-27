@@ -12,7 +12,11 @@ knitr::opts_chunk$set(echo = TRUE)
 _Report all R code either inline or in an appendix._
 
 1) _Provide a reason for your choice of location. Report any missing observations and the range of years where you are modeling._
+<<<<<<< HEAD
     We chose a location in Australia (CGO) called Cape Grim, which is the northern-most point of Tasmania.  According to the station's website (managed by Massachussetts Institute of Technology), the station there is located in the path of large air masses that settle over Antarctica and the Southern Ocean that surrounds it. Thus, measurements taken there tend to give some information about CO2 concentrations in less accessible places such as the South Pole. 
+=======
+    We chose a location in Australia (CGO) called Cape Grim, which is the northern-most point of Tasmania.  According to the station's website (managed by Massachussetts Institute of Technology), the station there is located in the path of large air masses that settle over Antarctica and the Southern Ocean that surrounds it; thus, measurements taken there tend to give some information about CO2 concentrations in less accessible places such as the South Pole. 
+>>>>>>> ae044fe4e6d0c7ea278edf4ab0234c1368843766
     The dataset contains observations over a 21 year period from 1984 to 2015. Thankfully, there were no missing observations in the dataset.
 
 ```{r, include=FALSE}
@@ -36,11 +40,16 @@ CGOts<-ts(CGO$Value,start=c(1984,5),freq=12)
 ```
 
 2) _Make a nice looking time series plot of the CO$2$ concentrations._
+The plot of CO2 concentrations is given below. It appears that they are increasing over time at Cape Grim. 
+
 ```{r}
-plot(CGOts, col = "hotpink3", lwd = 2, main = "Carbon Dioxide Concentration over Time")
+plot(CGOts, col = "hotpink3", lwd = 2, main = "Cape Grim CO2")
 ```
 
 3) _Fit a linear trend plus seasonal means model to the data. Report and discuss the four panel residual diagnostics. Also make a plot of residuals vs time and discuss any potential missed pattern versus time._
+
+The four diagnostics are 
+
 ```{r}
 #Not sure if this is exactly what he wants given the "seasonal means model"
 YearF <- as.vector(time(CGOts))
@@ -65,9 +74,12 @@ require(car)
 Anova(LS.lm,type=2)
 Anova(LS.lm,type=3)
 ```
-
+The F values and corresponding p-values for the type III and type II anova test are; 4540.9 with a p-value less than 0.0001 and 58170.94 with a p-value less than 0.0001 for YearF, 0.0764 with a p-value of 1 and 2.91 with a p-value of 0.0011 for MonthF, and 0.787 with a p-value of 1 for both anova on YearF*MonthF. 
 
 5) _For your model, plot the original time series and the model fitted values, both versus time on the same plot. You might consider two line types or colors for the two lines. The easiest way to obtain fitted values in R is using fitted(modelname). Discuss how it appears your model does or does not describe the responses using this plot._
+
+
+
 
 ```{r}
 plot(CGO$Value~YearF,type="l")
