@@ -44,7 +44,9 @@ plot(CGOts, col = "hotpink3", lwd = 2, main = "Cape Grim CO2")
 
 3) _Fit a linear trend plus seasonal means model to the data. Report and discuss the four panel residual diagnostics. Also make a plot of residuals vs time and discuss any potential missed pattern versus time._
 
-The four diagnostics are 
+The four diagnostics are given in the plots below, as well as the plot of residuals vs. time. The Normal QQ plot examines the assumption that the resdiuals (and thus the response) are rasonably normally distributed; however this plot indicates that the tails of the distribution may be too heavy to be considered normal.  The plot of residuals vs. fitted values indicates that the residuals are reasonably constantly distributed (i.e. homoskedastic) but that the response may be non-linear. This may be due to the fact that we missed some pattern over time. 
+
+Based on the plot of residuals vs. time, we can see a pattern where residuals tend to decrease and then incrase again in some sort of parabolic fashion; this pattern is missed by our model. This indicates that we ought to consider using a different model that takes this structure into account. 
 
 ```{r}
 #Not sure if this is exactly what he wants given the "seasonal means model"
@@ -58,7 +60,7 @@ CGO.lm<-lm(CGO$Value~YearF + MonthF)
 par(mfrow=c(2,2))
 plot(CGO.lm)
 par(mfrow=c(1,1))
-plot(CGO.lm$residuals~YearF,ylab="Residuals",xlab="Time")
+plot(CGO.lm$residuals~YearF,ylab="Residuals",xlab="Time", main = "Missed Pattern vs. Time")
 ```
 
 4) _Provide tests for the linear and seasonal means components, conditional on each other. Report those results in two sentences including all details._
