@@ -14,9 +14,7 @@ _Report all R code either inline or in an appendix._
 1) _Provide a reason for your choice of location. Report any missing observations and the range of years where you are modeling._
 We chose a location in Australia (CGO) called Cape Grim, which is the northern-most point of Tasmania.  According to the station's website (managed by Massachussetts Institute of Technology), the station there is located in the path of large air masses that settle over Antarctica and the Southern Ocean that surrounds it. Thus, measurements taken there tend to give some information about CO2 concentrations in less accessible places such as the South Pole. 
 
-We chose a location in Australia (CGO) called Cape Grim, which is the northern-most point of Tasmania.  According to the station's website (managed by Massachussetts Institute of Technology), the station there is located in the path of large air masses that settle over Antarctica and the Southern Ocean that surrounds it; thus, measurements taken there tend to give some information about CO2 concentrations in less accessible places such as the South Pole. 
-
-The dataset contains observations over a 21 year period from 1984 to 2015. Thankfully, there were no missing observations in the dataset.
+The dataset contains observations over a twenty-one year period from 1984 to 2015. Thankfully, there were no missing observations in the dataset.
 
 ```{r, include=FALSE}
 CGO <- read.table("ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_cgo_surface-flask_1_ccgg_month.txt",header=T)
