@@ -36,11 +36,16 @@ CGOts<-ts(CGO$Value,start=c(1984,5),freq=12)
 ```
 
 2) _Make a nice looking time series plot of the CO$2$ concentrations._
+The plot of CO2 concentrations is given below. It appears that they are increasing over time at Cape Grim. 
+
 ```{r}
-plot(CGOts, col = "hotpink3", lwd = 2)
+plot(CGOts, col = "hotpink3", lwd = 2, main = "Cape Grim CO2")
 ```
 
 3) _Fit a linear trend plus seasonal means model to the data. Report and discuss the four panel residual diagnostics. Also make a plot of residuals vs time and discuss any potential missed pattern versus time._
+
+The four diagnostics are 
+
 ```{r}
 #Not sure if this is exactly what he wants given the "seasonal means model"
 YearF <- as.vector(time(CGOts))
