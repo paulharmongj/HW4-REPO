@@ -68,7 +68,7 @@ anova(LS.lm)
 if (!require("car")) install.packages("car")
 Anova(LS.lm,type=3)
 ```
-The F test (using type III sum of squares to condition on all the covariates in the model) with  1 and 367 DF generates a F-test value of 59822.91 with a p-value of nearly 0, indicating strong evidence that both the Year effect is different from 0. Further, the F test on 11 and 367 DF for the Month effect has a F-value of 2.98 yielding a p-value of 0.0008, indicating strong evidence that CO2 emissions differ by month as well. 
+The F test (using type III sum of squares to condition on all the covariates in the model) with  1 and 367 DF generates a F-test value of 59822.91 with a p-value of nearly 0, indicating strong evidence that the Year effect is different from 0. Further, the F test on 11 and 367 DF for the Month effect has a F-value of 2.98 yielding a p-value of 0.0008, indicating strong evidence that CO2 emissions differ by month as well. 
 
 5) _For your model, plot the original time series and the model fitted values, both versus time on the same plot. You might consider two line types or colors for the two lines. The easiest way to obtain fitted values in R is using fitted(modelname). Discuss how it appears your model does or does not describe the responses using this plot._
 The plot below compares the model fitted values to the original time series. We can see our model does a great job of describing the observed CO2 values as the values are very similar.\\
