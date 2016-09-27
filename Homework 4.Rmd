@@ -74,9 +74,9 @@ The F test (using type III sum of squares to condition on all the covariates in 
 The plot below compares the model fitted values to the original time series. We can see our model does a great job of describing the observed CO2 values as the values are very similar.\\
 
 ```{r}
-plot(CGO$Value~YearF,type="l")
+plot(CGO$Value~YearF,type="l", main = "Model vs. Actual CO2", lwd = 2)
 fits<-fitted(CGO.lm)
-lines(fits~YearF,type="l",col="blue")
+lines(fits~YearF,type="l", lwd = 2,col="blue")
 ```
 
 6) _Document your R version._
